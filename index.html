@@ -4,18 +4,69 @@
 <head>
     <title>WEB1 - Welcome</title>
     <meta charset="utf-8">
+    <style>
+        /* 우선순위, 순차적으로 스타일이 적용되므로, 잘 확인해야함
+        3등 - 스타일 태그: 모든 a 태그에 대해 아래와 같은 속성을 설정 */
+        body {
+            margin: 0;
+        }
+        h1 {
+            font-size: 45px;
+            text-align: center;
+            border-bottom: 1px solid gray;
+            margin: 0;
+            padding: 20px;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        /* 2등 - 클래스 */
+        .saw {
+            color: gray;
+        }
+        /* 1등 - ID: 가장 높은 우선순위 */
+        #article {
+            padding-left: 25px;
+        }
+        #active {
+            color: blue;
+        }
+        ol {
+            border-right: 1px solid gray;
+            width: 100px;
+            margin: 0;
+            padding: 20px;
+        }
+        /* ol 태그가 위에 있지만, grid는 id 속성으로 우선순위가 가장 높기 때문에 먼저 적용됨 */
+        #grid {
+            display: grid;
+            /* 그리드의 첫번째 컬럼은 150px, 두번째 컬럼은 나머지로 설정 */
+            grid-template-columns: 150px 1fr; 
+        }
+        /* 모든 ol 태그 중에 grid가 부모인 ol인 태그 */
+        #grid ol {
+            padding-left: 33px;
+        }
+    </style>
 </head>
 
 <body>
     <h1><a href="index.html">WEB</a></h1>
-    <ol>
-        <li><a href="1.html">HTML</a></li>
-        <li><a href="2.html">CSS</a></li>
-        <li><a href="3.html">JavaScript</a></li>
-    </ol>
-    <h2>WEB</h2>
-    <p>The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.[1] English scientist Tim Berners-Lee invented the World Wide Web in 1989. He wrote the first web browser computer program in 1990 while employed at CERN in Switzerland.[2][3] The Web browser was released outside of CERN in 1991, first to other research institutions starting in January 1991 and to the general public on the Internet in August 1991.
-    </p>
+    <!-- div 태그: 의미 없이 다른 두 태그를 묶을 수 있는 태그 -->
+    <div id="grid">
+        <ol>
+            <li><a href="1.html" class="saw">HTML</a></li>
+            <li><a href="2.html" class="saw" id="active">CSS</a></li>
+			<!-- 스타일 속성 -->
+            <li><a href="3.html" style="color:green">JavaScript</a></li>
+        </ol>
+        <div id="article">
+            <h2>WEB</h2>
+            <p>The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.[1] English scientist Tim Berners-Lee invented the World Wide Web in 1989. He wrote the first web browser computer program in 1990 while employed at CERN in Switzerland.[2][3] The Web browser was released outside of CERN in 1991, first to other research institutions starting in January 1991 and to the general public on the Internet in August 1991.
+            </p>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border: 5px solid gray;
+        }
+        #grid {
+            border: 5px solid pink;
+            display: grid;
+            /* 1fr은 왼쪽부터 150px을 제외한 부분 전체를 의미 */
+            grid-template-columns: 150px 1fr;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- span 태그는 inline -->
+    <div id="grid">
+        <div>NAVIGATION</div>
+        <div>The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.</div>
+    </div>
+</body>
+
+</html>
