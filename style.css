@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+}
+h1 {
+    font-size: 45px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    margin: 0;
+    padding: 20px;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+ol {
+    border-right: 1px solid gray;
+    width: 100px;
+    margin: 0;
+    padding: 20px;
+}
+/* ol 태그가 위에 있지만, grid는 id 속성으로 우선순위가 가장 높기 때문에 먼저 적용됨 */
+#grid {
+    display: grid;
+    /* 그리드의 첫번째 컬럼은 150px, 두번째 컬럼은 나머지로 설정 */
+    grid-template-columns: 150px 1fr; 
+}
+/* grid라는 id 밑에 있는 ol 태그 */
+#grid ol {
+    padding-left: 33px;
+}
+#grid #article {
+    padding-left: 25px;
+}
+@media(max-width: 500px) {
+    h2 {
+        font-size: 20px;
+    }
+    #grid {
+        display: block;
+    }
+    ol {
+        border-right: none;
+    }
+    h1 {
+        border-bottom: none;
+    }
+}
