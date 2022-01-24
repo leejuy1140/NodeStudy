@@ -31,6 +31,7 @@
     <h2>Property & Method</h2>
     <script>
         //메소드를 통한 순회(this는 coworkers를 의미)
+        //아래 로직이 마지막에 그대로 출력됨
         coworkers.showAll = function() {
             for(var key in this) {
                 document.write(key+' : '+this[key]+'<br>');

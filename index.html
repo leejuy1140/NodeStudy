@@ -4,26 +4,45 @@
 <head>
     <title>WEB1 - Welcome</title>
     <meta charset="utf-8">
-    <!-- css파일 연결 -->
     <link rel="stylesheet" href="style.css">
+    <script>
+        var Links = {
+            setColor: function(color) {
+                var i = 0;
+                var alist = document.querySelectorAll('a');
+                while (i < alist.length) {
+                    alist[i].style.color = color;
+                    i = i + 1;
+                }
+            }
+        }
+        var Body = {
+            setColor: function(color) {
+                document.querySelector('body').style.color = color;
+            },
+            setBackgroundColor: function(color) {
+                document.querySelector('body').style.backgroundColor = color;
+            }
+        }
+        function nightDayHandler(myself) {
+            if (myself.value === 'night') {
+                Body.setBackgroundColor('black');
+                Body.setColor('white');
+                myself.value = 'day';
+                Links.setColor('powderblue');
+            } else {
+                Body.setBackgroundColor('white');
+                Body.setColor('black');
+                myself.value = 'night';
+                Links.setColor('blue');
+            }
+        }
+    </script>
 </head>
 
 <body>
     <h1><a href="index.html">WEB</a></h1>
-    <!-- this는 <input id="toggle">이라는 전제하에 document.querySelector('#toggle')과 동일 -->
-    <input type="button" value="night" onclick="
-        var target = document.querySelector('body');
-        if(this.value === 'night') {
-            target.style.backgroundColor = 'black';
-            target.style.color = 'white';
-            this.value = 'day';
-        }
-        else {
-            target.style.backgroundColor = 'white';
-            target.style.color = 'black';
-            this.value = 'night';
-        }
-    ">
+    <input type="button" value="night" onclick="nightDayHandler(this);">
     <div id="grid">
         <ol>
             <li><a href="1.html">HTML</a></li>
@@ -33,7 +52,12 @@
         <div id="article">
             <h2>WEB</h2>
             <p>
-                The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.[1] English scientist Tim Berners-Lee invented the World Wide Web in 1989. He wrote the first web browser computer program in 1990 while employed at CERN in Switzerland.[2][3] The Web browser was released outside of CERN in 1991, first to other research institutions starting in January 1991 and to the general public on the Internet in August 1991.
+                The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web
+                resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be
+                accessed via the Internet.[1] English scientist Tim Berners-Lee invented the World Wide Web in 1989. He
+                wrote the first web browser computer program in 1990 while employed at CERN in Switzerland.[2][3] The
+                Web browser was released outside of CERN in 1991, first to other research institutions starting in
+                January 1991 and to the general public on the Internet in August 1991.
             </p>
         </div>
     </div>
