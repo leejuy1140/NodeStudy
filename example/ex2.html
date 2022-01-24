@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Basic</title>
+</head>
+
+<body>
+    <h2>Create</h2>
+    <script>
+        //배열 느낌으로는 왼쪽이 index, 오른쪽이 value
+		//객체에게는 왼쪽이 key, 오른쪽이 value
+        var coworkers = {
+            "programmer" : "egoing",
+            "designer" : "leezche"
+        };
+        document.write("programmer : "+coworkers.programmer+"<br>");
+        document.write("designer : "+coworkers.designer+"<br>");
+        coworkers.bookkeeper = "duru";
+        document.write("bookkeeper : "+coworkers.bookkeeper+"<br>");
+        coworkers["data scientist"] = "taeho";
+        document.write("data scientist : "+coworkers["data scientist"]+"<br>");
+    </script>
+    <h2>Iterator</h2>
+    <script>
+        //iterator를 통한 순회
+        for(var key in coworkers) {
+            document.write(coworkers[key]+'<br>');
+        }
+    </script>
+    <h2>Property & Method</h2>
+    <script>
+        //메소드를 통한 순회(this는 coworkers를 의미)
+        coworkers.showAll = function() {
+            for(var key in this) {
+                document.write(key+' : '+this[key]+'<br>');
+            }
+        }
+        coworkers.showAll();
+    </script>
+</body>
+</html>
